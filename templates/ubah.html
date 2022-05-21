@@ -1,0 +1,26 @@
+{% include 'header.html' %}
+<h3 class="box-title"> Ubah Berita </h3>
+
+
+<form action="{{url_for('proses_ubah')}}" method="POST">
+        {% for row in hasil %}
+            <div class="form-group">
+                <label style="margin-left:10px;"><h5><b>Judul</b></h5></label>
+                <input type="hidden" name="id" value="{{ row.0 }}">
+                <input style="margin-left:10px; width:60%;" type="text" name="judul" class="form-control" placeholder="judul" value="{{row.2}}">
+            </div>
+
+            <div class="form-group">
+                <label style="margin-left:10px;" for="exampleFormControlTextarea1"><h5><b>Isi Berita</b></h5></label>
+                <textarea style="margin-left:10px; width:60%; height:350px;"  class="form-control" name="isi" id="exampleFormControlTextarea1" rows="3" value="{{row.3}}">value={{row.3}}</textarea>
+            </div>
+
+
+        {% endfor %}
+
+        <div class="box-footer">
+            <button type="reset" class="btn btn-default"> Cancel </button>
+            <button type="submit" class="btn btn-primary pull-right"> Submit </button>
+            </div>
+</form>
+{% include 'footer.html' %}

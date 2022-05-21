@@ -1,0 +1,50 @@
+{% include 'header.html' %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">List Berita</h1>
+                        <a href="/homepage" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> HomePage</a>
+                                <a href="/tambah" class="btn btn-light btn-icon-split">
+                                    <span class="icon text-gray-600">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="text">Tambah Berita</span>
+                                </a>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                       <table class="table table-striped" counter-reset="serial-number">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Judul</th>
+                                    <th scope="col">Isi</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for row in hasil %}
+                                  <tr>
+                                    <td>{{row.1}}</td>
+                                    <td>{{row.2}}</td>
+                                    <td>{{row.3}}</td>
+                                    <td>
+                                      <a href="/ubah/{{row.0}}" class="btn btn-outline-success"> Ubah </a>
+                                      <a href="/hapus/{{row.0}}" class="btn btn-outline-danger"
+                                        onclick="return confirm('yakin akan menghapus {{row.2}} ?')"><h6>Hapus</h6></a><br>
+                                    </td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                          </table>
+
+                    </div>
+
+                        </div>
+
+            <!-- End of Main Content -->
+{% include 'footer.html' %}
